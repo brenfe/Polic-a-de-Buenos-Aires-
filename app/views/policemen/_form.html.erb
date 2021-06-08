@@ -1,0 +1,27 @@
+<%= form_with(model: policeman) do |form| %>
+  <% if policeman.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(policeman.errors.count, "error") %> prohibited this policeman from being saved:</h2>
+
+      <ul>
+        <% policeman.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :person_id %>
+    <%= form.text_field :person_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :police_station_id %>
+    <%= form.text_field :police_station_id %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

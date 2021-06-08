@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Policemen</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Person</th>
+      <th>Police station</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @policemen.each do |policeman| %>
+      <tr>
+        <td><%= policeman.person_id %></td>
+        <td><%= policeman.police_station_id %></td>
+        <td><%= link_to 'Show', policeman %></td>
+        <td><%= link_to 'Edit', edit_policeman_path(policeman) %></td>
+        <td><%= link_to 'Destroy', policeman, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Policeman', new_policeman_path %>

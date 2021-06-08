@@ -1,0 +1,9 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Person:</strong>
+  <%= @defendant.person_id %>
+</p>
+
+<%= link_to 'Edit', edit_defendant_path(@defendant) %> |
+<%= link_to 'Back', defendants_path %>

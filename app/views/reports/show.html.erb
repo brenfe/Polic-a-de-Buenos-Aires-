@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Date:</strong>
+  <%= @report.date %>
+</p>
+
+<p>
+  <strong>Details:</strong>
+  <%= @report.details %>
+</p>
+
+<p>
+  <strong>Policeman:</strong>
+  <%= @report.policeman_id %>
+</p>
+
+<p>
+  <strong>Complainant:</strong>
+  <%= @report.complainant_id %>
+</p>
+
+<p>
+  <strong>Defendant:</strong>
+  <%= @report.defendant_id %>
+</p>
+
+<p>
+  <strong>Category:</strong>
+  <%= @report.category_id %>
+</p>
+
+<p>
+  <strong>Damage:</strong>
+  <%= @report.damage_id %>
+</p>
+
+<%= link_to 'Edit', edit_report_path(@report) %> |
+<%= link_to 'Back', reports_path %>

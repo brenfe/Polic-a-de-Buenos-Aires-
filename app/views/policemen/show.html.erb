@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Person:</strong>
+  <%= @policeman.person_id %>
+</p>
+
+<p>
+  <strong>Police station:</strong>
+  <%= @policeman.police_station_id %>
+</p>
+
+<%= link_to 'Edit', edit_policeman_path(@policeman) %> |
+<%= link_to 'Back', policemen_path %>

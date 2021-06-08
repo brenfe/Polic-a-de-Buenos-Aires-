@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Type:</strong>
+  <%= @damage.type %>
+</p>
+
+<p>
+  <strong>Person:</strong>
+  <%= @damage.person_id %>
+</p>
+
+<p>
+  <strong>Property:</strong>
+  <%= @damage.property_id %>
+</p>
+
+<%= link_to 'Edit', edit_damage_path(@damage) %> |
+<%= link_to 'Back', damages_path %>

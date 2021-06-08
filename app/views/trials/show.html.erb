@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Details:</strong>
+  <%= @trial.details %>
+</p>
+
+<p>
+  <strong>Date:</strong>
+  <%= @trial.date %>
+</p>
+
+<p>
+  <strong>Report:</strong>
+  <%= @trial.report_id %>
+</p>
+
+<p>
+  <strong>Employee:</strong>
+  <%= @trial.employee_id %>
+</p>
+
+<%= link_to 'Edit', edit_trial_path(@trial) %> |
+<%= link_to 'Back', trials_path %>
