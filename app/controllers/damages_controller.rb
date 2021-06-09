@@ -1,5 +1,6 @@
 class DamagesController < ApplicationController
   before_action :set_damage, only: %i[ show edit update destroy ]
+  before_action :authenticate_user!
 
   # GET /damages or /damages.json
   def index

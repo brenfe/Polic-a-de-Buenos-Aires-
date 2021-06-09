@@ -1,5 +1,6 @@
 class TrialsController < ApplicationController
   before_action :set_trial, only: %i[ show edit update destroy ]
+  before_action :authenticate_user!
 
   # GET /trials or /trials.json
   def index

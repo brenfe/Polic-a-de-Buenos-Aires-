@@ -1,5 +1,6 @@
 class PoliceStationsController < ApplicationController
   before_action :set_police_station, only: %i[ show edit update destroy ]
+  before_action :authenticate_user!
 
   # GET /police_stations or /police_stations.json
   def index

@@ -1,5 +1,6 @@
 class DefendantsController < ApplicationController
   before_action :set_defendant, only: %i[ show edit update destroy ]
+  before_action :authenticate_user!
 
   # GET /defendants or /defendants.json
   def index

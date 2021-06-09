@@ -1,5 +1,6 @@
 class ComplainantsController < ApplicationController
   before_action :set_complainant, only: %i[ show edit update destroy ]
+  before_action :authenticate_user!
 
   # GET /complainants or /complainants.json
   def index
