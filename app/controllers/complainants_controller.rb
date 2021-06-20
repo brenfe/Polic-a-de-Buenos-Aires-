@@ -26,7 +26,7 @@ class ComplainantsController < ApplicationController
 
     respond_to do |format|
       if @complainant.save
-        format.html { redirect_to @complainant, notice: "Complainant was successfully created." }
+        format.html { redirect_to @complainant, notice: "Denunciante creado con éxito." }
         format.json { render :show, status: :created, location: @complainant }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -39,7 +39,7 @@ class ComplainantsController < ApplicationController
   def update
     respond_to do |format|
       if @complainant.update(complainant_params)
-        format.html { redirect_to @complainant, notice: "Complainant was successfully updated." }
+        format.html { redirect_to @complainant, notice: "Denunciante actualizado con éxito." }
         format.json { render :show, status: :ok, location: @complainant }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -52,7 +52,7 @@ class ComplainantsController < ApplicationController
   def destroy
     @complainant.destroy
     respond_to do |format|
-      format.html { redirect_to complainants_url, notice: "Complainant was successfully destroyed." }
+      format.html { redirect_to complainants_url, notice: "Denunciante eliminado con éxito." }
       format.json { head :no_content }
     end
   end

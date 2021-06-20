@@ -12,18 +12,18 @@
   <% end %>
 
   <div class="field">
-    <%= form.label :province_id %>
-    <%= form.text_field :province_id %>
+    <%= form.label :province_id, class: "form-label" %>
+    <%= form.collection_select :province_id, Province.all, :id, :name, { :include_blank => true }, {class: 'form-select'} %>
   </div>
 
   <div class="field">
-    <%= form.label :name %>
-    <%= form.text_field :name %>
+    <%= form.label :name, class: "form-label" %>
+    <%= form.text_field :name, class: "form-control" %>
   </div>
 
   <div class="field">
-    <%= form.label :zip_code %>
-    <%= form.number_field :zip_code %>
+    <%= form.label :zip_code, class: "form-label" %>
+    <%= form.number_field :zip_code, class: "form-control" %>
   </div>
 
   <div class="actions">

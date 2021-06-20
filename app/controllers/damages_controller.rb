@@ -26,7 +26,7 @@ class DamagesController < ApplicationController
 
     respond_to do |format|
       if @damage.save
-        format.html { redirect_to @damage, notice: "Damage was successfully created." }
+        format.html { redirect_to @damage, notice: "Daño creado con éxito." }
         format.json { render :show, status: :created, location: @damage }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -39,7 +39,7 @@ class DamagesController < ApplicationController
   def update
     respond_to do |format|
       if @damage.update(damage_params)
-        format.html { redirect_to @damage, notice: "Damage was successfully updated." }
+        format.html { redirect_to @damage, notice: "Daño actualizado con éxito." }
         format.json { render :show, status: :ok, location: @damage }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -52,7 +52,7 @@ class DamagesController < ApplicationController
   def destroy
     @damage.destroy
     respond_to do |format|
-      format.html { redirect_to damages_url, notice: "Damage was successfully destroyed." }
+      format.html { redirect_to damages_url, notice: "Daño eliminado con éxito." }
       format.json { head :no_content }
     end
   end

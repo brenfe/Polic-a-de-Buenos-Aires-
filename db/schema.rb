@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_06_08_195939) do
+ActiveRecord::Schema.define(version: 2021_06_20_124146) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -134,10 +134,8 @@ ActiveRecord::Schema.define(version: 2021_06_08_195939) do
     t.string "details"
     t.datetime "date"
     t.bigint "report_id", null: false
-    t.bigint "employee_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["employee_id"], name: "index_trials_on_employee_id"
     t.index ["report_id"], name: "index_trials_on_report_id"
   end
 
@@ -171,6 +169,5 @@ ActiveRecord::Schema.define(version: 2021_06_08_195939) do
   add_foreign_key "reports", "damages"
   add_foreign_key "reports", "defendants"
   add_foreign_key "reports", "policemen"
-  add_foreign_key "trials", "employees"
   add_foreign_key "trials", "reports"
 end

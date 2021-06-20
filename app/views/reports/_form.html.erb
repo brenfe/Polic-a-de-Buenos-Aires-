@@ -23,7 +23,7 @@
 
   <div class="field">
     <%= form.label :policeman_id %>
-    <%= form.text_field :policeman_id %>
+    <%= form.collection_select :policeman_id, Policeman.all, :id, :policeman.person.nombre_completo, html_options = { class: "form-select form-control"} %>
   </div>
 
   <div class="field">

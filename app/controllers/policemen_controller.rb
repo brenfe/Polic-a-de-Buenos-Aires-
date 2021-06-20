@@ -26,7 +26,7 @@ class PolicemenController < ApplicationController
 
     respond_to do |format|
       if @policeman.save
-        format.html { redirect_to @policeman, notice: "Policeman was successfully created." }
+        format.html { redirect_to @policeman, notice: "Policía creado con éxito." }
         format.json { render :show, status: :created, location: @policeman }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -39,7 +39,7 @@ class PolicemenController < ApplicationController
   def update
     respond_to do |format|
       if @policeman.update(policeman_params)
-        format.html { redirect_to @policeman, notice: "Policeman was successfully updated." }
+        format.html { redirect_to @policeman, notice: "Policía actualizado con éxito." }
         format.json { render :show, status: :ok, location: @policeman }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -52,7 +52,7 @@ class PolicemenController < ApplicationController
   def destroy
     @policeman.destroy
     respond_to do |format|
-      format.html { redirect_to policemen_url, notice: "Policeman was successfully destroyed." }
+      format.html { redirect_to policemen_url, notice: "Policía eliminado con éxito." }
       format.json { head :no_content }
     end
   end

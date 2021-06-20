@@ -1,13 +1,13 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Cities</h1>
+<h1>Ciudades</h1>
 
-<table>
+<table class="table table-hover">
   <thead>
     <tr>
-      <th>Province</th>
-      <th>Name</th>
-      <th>Zip code</th>
+      <th scope="col">Provincia</th>
+      <th scope="col">Nombre</th>
+      <th scope="col">Código Postal</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -15,12 +15,12 @@
   <tbody>
     <% @cities.each do |city| %>
       <tr>
-        <td><%= city.province_id %></td>
+        <td><%= city.province.name %></td>
         <td><%= city.name %></td>
         <td><%= city.zip_code %></td>
-        <td><%= link_to 'Show', city %></td>
-        <td><%= link_to 'Edit', edit_city_path(city) %></td>
-        <td><%= link_to 'Destroy', city, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Ver', city, class: "btn btn-success", style: "color:white" %></td>
+        <td><%= link_to 'Editar', edit_city_path(city), class: "btn btn-primary", style: "color:white" %></td>
+        <td><%= link_to 'Eliminar', city, class: "btn btn-danger", style: "color:white", method: :delete, data: { confirm: '¿Está seguro?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -28,4 +28,4 @@
 
 <br>
 
-<%= link_to 'New City', new_city_path %>
+<%= link_to 'Nueva Ciudad', new_city_path, class: "btn btn-primary", style: "color:white" %>

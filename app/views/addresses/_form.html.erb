@@ -12,28 +12,28 @@
   <% end %>
 
   <div class="field">
-    <%= form.label :street %>
-    <%= form.text_field :street %>
+    <%= form.label :street, class: "form-label" %>
+    <%= form.text_field :street, class: "form-control" %>
   </div>
 
   <div class="field">
-    <%= form.label :number %>
-    <%= form.number_field :number %>
+    <%= form.label :number, class: "form-label" %>
+    <%= form.number_field :number, class: "form-control" %>
   </div>
 
   <div class="field">
-    <%= form.label :floor %>
-    <%= form.number_field :floor %>
+    <%= form.label :floor, class: "form-label" %>
+    <%= form.number_field :floor, class: "form-control" %>
   </div>
 
   <div class="field">
-    <%= form.label :apartment %>
-    <%= form.text_field :apartment %>
+    <%= form.label :apartment, class: "form-label" %>
+    <%= form.text_field :apartment, class: "form-control" %>
   </div>
 
   <div class="field">
-    <%= form.label :city_id %>
-    <%= form.text_field :city_id %>
+    <%= form.label :city_id, class: "form-label" %>
+    <%= form.collection_select :city_id, City.all, :id, :name, { :include_blank => true }, {class: 'form-select'} %>
   </div>
 
   <div class="actions">

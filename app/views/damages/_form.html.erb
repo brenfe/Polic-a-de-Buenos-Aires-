@@ -18,12 +18,12 @@
 
   <div class="field">
     <%= form.label :person_id %>
-    <%= form.text_field :person_id %>
+    <%= form.collection_select :person_id, Person.all, :id, :nombre_completo, html_options = { class: "form-select form-control"} %>
   </div>
 
   <div class="field">
     <%= form.label :property_id %>
-    <%= form.text_field :property_id %>
+    <%= form.collection_select :property_id, Property.all, :id, :propiedad, html_options = { class: "form-select form-control"} %>
   </div>
 
   <div class="actions">

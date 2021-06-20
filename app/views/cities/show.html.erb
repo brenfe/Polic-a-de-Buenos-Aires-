@@ -1,19 +1,19 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Province:</strong>
-  <%= @city.province_id %>
+  <strong>Provincia:</strong>
+  <%= @city.province.name %>
 </p>
 
 <p>
-  <strong>Name:</strong>
+  <strong>Nombre:</strong>
   <%= @city.name %>
 </p>
 
 <p>
-  <strong>Zip code:</strong>
+  <strong>Código Postal:</strong>
   <%= @city.zip_code %>
 </p>
 
-<%= link_to 'Edit', edit_city_path(@city) %> |
-<%= link_to 'Back', cities_path %>
+<%= link_to 'Editar', edit_city_path(@city) %> |
+<%= link_to 'Volver', cities_path %>

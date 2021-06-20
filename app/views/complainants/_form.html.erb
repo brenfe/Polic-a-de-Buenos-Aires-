@@ -12,8 +12,8 @@
   <% end %>
 
   <div class="field">
-    <%= form.label :person_id %>
-    <%= form.text_field :person_id %>
+    <%= form.label :person_id, class: "form-label" %>
+    <%= form.collection_select :person_id, Person.all, :id, :nombre_completo, { :include_blank => true }, {class: 'form-select'} %>
   </div>
 
   <div class="actions">
