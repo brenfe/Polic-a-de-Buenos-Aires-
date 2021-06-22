@@ -1,14 +1,14 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Address:</strong>
-  <%= @property.address_id %>
+  <strong>Dirección:</strong>
+  <%= @property.address.direccion %>
 </p>
 
 <p>
-  <strong>Details:</strong>
+  <strong>Detalles:</strong>
   <%= @property.details %>
 </p>
 
-<%= link_to 'Edit', edit_property_path(@property) %> |
-<%= link_to 'Back', properties_path %>
+<%= link_to 'Editar', edit_property_path(@property) %> |
+<%= link_to 'Volver', properties_path %>

@@ -5,6 +5,8 @@ class DamagesController < ApplicationController
   # GET /damages or /damages.json
   def index
     @damages = Damage.all
+    @damages = @damages.where(["table_type LIKE :filter", :filter => "%" + params[:filter] + "%"]) unless params[:filter].blank?
+    @damages = @damages.page(params[:page]) || 1
   end
 
   # GET /damages/1 or /damages/1.json
@@ -65,6 +67,6 @@ class DamagesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def damage_params
-      params.require(:damage).permit(:type, :person_id, :property_id)
+      params.require(:damage).permit(:table_type, :person_id, :property_id)
     end
 end

@@ -5,6 +5,8 @@ class PoliceStationsController < ApplicationController
   # GET /police_stations or /police_stations.json
   def index
     @police_stations = PoliceStation.all
+    @police_stations = @police_stations.where(["name LIKE :filter", :filter => "%" + params[:filter] + "%"]) unless params[:filter].blank?
+    @police_stations = @police_stations.page(params[:page]) || 1
   end
 
   # GET /police_stations/1 or /police_stations/1.json

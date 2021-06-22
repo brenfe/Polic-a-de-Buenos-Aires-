@@ -1,12 +1,12 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Employees</h1>
+<h1>Empleados</h1>
 
-<table>
+<table class="table table-hover">
   <thead>
     <tr>
-      <th>Person</th>
-      <th>Position</th>
+      <th scope="col">Persona</th>
+      <th scope="col">Puesto</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -14,16 +14,18 @@
   <tbody>
     <% @employees.each do |employee| %>
       <tr>
-        <td><%= employee.person_id %></td>
+        <td><%= employee.person.nombre_completo %></td>
         <td><%= employee.position %></td>
-        <td><%= link_to 'Show', employee %></td>
-        <td><%= link_to 'Edit', edit_employee_path(employee) %></td>
-        <td><%= link_to 'Destroy', employee, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Ver', employee, class: "btn btn-success", style: "color:white" %></td>
+        <td><%= link_to 'Editar', edit_employee_path(employee), class: "btn btn-primary", style: "color:white" %></td>
+        <td><%= link_to 'Eliminar', employee, class: "btn btn-danger", style: "color:white", method: :delete, data: { confirm: '¿Está seguro?' } %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
+<%= paginate @employees %>
+
 <br>
 
-<%= link_to 'New Employee', new_employee_path %>
+<%= link_to 'Nuevo Empleado', new_employee_path, class: "btn btn-primary", style: "color:white" %>

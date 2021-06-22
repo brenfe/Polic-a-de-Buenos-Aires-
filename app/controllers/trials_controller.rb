@@ -5,6 +5,7 @@ class TrialsController < ApplicationController
   # GET /trials or /trials.json
   def index
     @trials = Trial.all
+    @trials = @trials.page(params[:page]) || 1
   end
 
   # GET /trials/1 or /trials/1.json
@@ -65,6 +66,6 @@ class TrialsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def trial_params
-      params.require(:trial).permit(:details, :date, :report_id, :employee_id)
+      params.require(:trial).permit(:details, :date, :report_id)
     end
 end

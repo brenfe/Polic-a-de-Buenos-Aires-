@@ -1,9 +1,9 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Person:</strong>
-  <%= @complainant.person_id %>
+  <strong>Persona:</strong>
+  <%= @complainant.person.nombre_completo %>
 </p>
 
-<%= link_to 'Edit', edit_complainant_path(@complainant) %> |
-<%= link_to 'Back', complainants_path %>
+<%= link_to 'Editar', edit_complainant_path(@complainant) %> |
+<%= link_to 'Volver', complainants_path %>

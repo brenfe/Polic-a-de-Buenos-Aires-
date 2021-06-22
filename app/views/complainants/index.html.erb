@@ -13,7 +13,7 @@
   <tbody>
     <% @complainants.each do |complainant| %>
       <tr>
-        <td><%= complainant.person_id %></td>
+        <td><%= complainant.person.nombre_completo %></td>
         <td><%= link_to 'Ver', complainant, class: "btn btn-success", style: "color:white" %></td>
         <td><%= link_to 'Editar', edit_complainant_path(complainant), class: "btn btn-primary", style: "color:white" %></td>
         <td><%= link_to 'Eliminar', complainant, class: "btn btn-danger", style: "color:white", method: :delete, data: { confirm: '¿Está seguro?' } %></td>
@@ -21,6 +21,8 @@
     <% end %>
   </tbody>
 </table>
+
+<%= paginate @complainants %>
 
 <br>
 

@@ -5,6 +5,8 @@ class PeopleController < ApplicationController
   # GET /people or /people.json
   def index
     @people = Person.all
+    @people = @people.where(["first_name LIKE :filter OR last_name LIKE :filter", :filter => "%" + params[:filter] + "%"]) unless params[:filter].blank?
+    @people = @people.page(params[:page]) || 1
   end
 
   # GET /people/1 or /people/1.json

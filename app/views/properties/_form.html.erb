@@ -12,16 +12,16 @@
   <% end %>
 
   <div class="field">
-    <%= form.label :address_id %>
-    <%= form.collection_select :address_id, Address.all, :id, :direccion, html_options = { class: "form-select form-control"} %>
+    <%= form.label :address_id, 'Dirección', class: "form-label" %>
+    <%= form.collection_select :address_id, Address.all, :id, :direccion, { :include_blank => true }, {class: 'form-select'} %>
   </div>
 
   <div class="field">
-    <%= form.label :details %>
-    <%= form.text_field :details %>
+    <%= form.label :details, 'Detalles', class: "form-label" %>
+    <%= form.text_field :details, class: "form-control" %>
   </div>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit 'Guardar cambios', class: "btn btn-success" %>
   </div>
 <% end %>

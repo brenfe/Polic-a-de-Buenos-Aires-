@@ -4,4 +4,5 @@ class Report < ApplicationRecord
   belongs_to :defendant
   belongs_to :category
   belongs_to :damage
+  paginates_per 5
 end

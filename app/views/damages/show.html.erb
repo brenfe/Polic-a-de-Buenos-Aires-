@@ -1,19 +1,19 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Type:</strong>
-  <%= @damage.type %>
+  <strong>Tipo:</strong>
+  <%= @damage.table_type %>
 </p>
 
 <p>
-  <strong>Person:</strong>
-  <%= @damage.person_id %>
+  <strong>Persona:</strong>
+  <%= @damage.person.nombre_completo %>
 </p>
 
 <p>
-  <strong>Property:</strong>
-  <%= @damage.property_id %>
+  <strong>Propiedad:</strong>
+  <%= @damage.property.address.direccion %>
 </p>
 
-<%= link_to 'Edit', edit_damage_path(@damage) %> |
-<%= link_to 'Back', damages_path %>
+<%= link_to 'Editar', edit_damage_path(@damage) %> |
+<%= link_to 'Volver', damages_path %>

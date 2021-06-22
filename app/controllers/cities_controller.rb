@@ -5,6 +5,8 @@ class CitiesController < ApplicationController
   # GET /cities or /cities.json
   def index
     @cities = City.all
+    @cities = @cities.where(["name LIKE :filter", :filter => "%" + params[:filter] + "%"]) unless params[:filter].blank?
+    @cities = @cities.page(params[:page]) || 1
   end
 
   # GET /cities/1 or /cities/1.json

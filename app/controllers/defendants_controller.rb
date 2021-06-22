@@ -5,6 +5,7 @@ class DefendantsController < ApplicationController
   # GET /defendants or /defendants.json
   def index
     @defendants = Defendant.all
+    @defendants = @defendants.page(params[:page]) || 1
   end
 
   # GET /defendants/1 or /defendants/1.json

@@ -1,17 +1,17 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Reports</h1>
+<h1>Denuncias</h1>
 
-<table>
+<table class="table table-hover">
   <thead>
     <tr>
-      <th>Date</th>
-      <th>Details</th>
-      <th>Policeman</th>
-      <th>Complainant</th>
-      <th>Defendant</th>
-      <th>Category</th>
-      <th>Damage</th>
+      <th scope="col">Fecha y hora</th>
+      <th scope="col">Detalles</th>
+      <th scope="col">Policía encargado</th>
+      <th scope="col">Denunciante</th>
+      <th scope="col">Acusado</th>
+      <th scope="col">Categoría</th>
+      <th scope="col">Tipo de daño</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -21,19 +21,21 @@
       <tr>
         <td><%= report.date %></td>
         <td><%= report.details %></td>
-        <td><%= report.policeman_id %></td>
-        <td><%= report.complainant_id %></td>
-        <td><%= report.defendant_id %></td>
-        <td><%= report.category_id %></td>
-        <td><%= report.damage_id %></td>
-        <td><%= link_to 'Show', report %></td>
-        <td><%= link_to 'Edit', edit_report_path(report) %></td>
-        <td><%= link_to 'Destroy', report, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= report.policeman.person_full_name %></td>
+        <td><%= report.complainant.person_full_name %></td>
+        <td><%= report.defendant.person_full_name %></td>
+        <td><%= report.category.name %></td>
+        <td><%= report.damage.table_type %></td>
+        <td><%= link_to 'Ver', report, class: "btn btn-success", style: "color:white" %></td>
+        <td><%= link_to 'Editar', edit_report_path(report), class: "btn btn-primary", style: "color:white" %></td>
+        <td><%= link_to 'Eliminar', report, class: "btn btn-danger", style: "color:white", method: :delete, data: { confirm: '¿Está seguro?' } %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
+<%= paginate @reports %>
+
 <br>
 
-<%= link_to 'New Report', new_report_path %>
+<%= link_to 'Nueva Denuncia', new_report_path, class: "btn btn-primary", style: "color:white" %>

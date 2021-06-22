@@ -12,31 +12,31 @@
   <% end %>
 
   <div class="field">
-    <%= form.label :street, class: "form-label" %>
+    <%= form.label :street, 'Calle', class: "form-label" %>
     <%= form.text_field :street, class: "form-control" %>
   </div>
 
   <div class="field">
-    <%= form.label :number, class: "form-label" %>
+    <%= form.label :number, 'Número', class: "form-label" %>
     <%= form.number_field :number, class: "form-control" %>
   </div>
 
   <div class="field">
-    <%= form.label :floor, class: "form-label" %>
+    <%= form.label :floor, 'Piso', class: "form-label" %>
     <%= form.number_field :floor, class: "form-control" %>
   </div>
 
   <div class="field">
-    <%= form.label :apartment, class: "form-label" %>
+    <%= form.label :apartment, 'Departamento', class: "form-label" %>
     <%= form.text_field :apartment, class: "form-control" %>
   </div>
 
   <div class="field">
-    <%= form.label :city_id, class: "form-label" %>
+    <%= form.label :city_id, 'Ciudad', class: "form-label" %>
     <%= form.collection_select :city_id, City.all, :id, :name, { :include_blank => true }, {class: 'form-select'} %>
   </div>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit 'Guardar cambios', class: "btn btn-success" %>
   </div>
 <% end %>

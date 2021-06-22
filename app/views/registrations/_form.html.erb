@@ -1,0 +1,27 @@
+<%= form_with(model: registration) do |form| %>
+  <% if registration.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(registration.errors.count, "error") %> prohibited this registration from being saved:</h2>
+
+      <ul>
+        <% registration.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :employee_id, 'Empleado', class: "form-label" %>
+    <%= form.collection_select :employee_id, Employee.all, :id, :person_full_name, { :include_blank => true }, {class: 'form-select'} %>
+  </div>
+
+  <div class="field">
+    <%= form.label :trial_id, 'Fecha y hora del juicio', class: "form-label" %>
+    <%= form.collection_select :trial_id, Trial.all, :id, :date, { :include_blank => true }, {class: 'form-select'} %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit 'Guardar Cambios', class: "btn btn-success" %>
+  </div>
+<% end %>

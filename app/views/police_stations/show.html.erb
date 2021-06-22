@@ -1,14 +1,14 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Address:</strong>
-  <%= @police_station.address_id %>
+  <strong>Dirección:</strong>
+  <%= @police_station.address.direccion %>
 </p>
 
 <p>
-  <strong>Name:</strong>
+  <strong>Nombre:</strong>
   <%= @police_station.name %>
 </p>
 
-<%= link_to 'Edit', edit_police_station_path(@police_station) %> |
-<%= link_to 'Back', police_stations_path %>
+<%= link_to 'Editar', edit_police_station_path(@police_station) %> |
+<%= link_to 'Volver', police_stations_path %>

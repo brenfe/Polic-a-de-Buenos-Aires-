@@ -4,6 +4,8 @@ class AddressesController < ApplicationController
   # GET /addresses or /addresses.json
   def index
     @addresses = Address.all
+    @addresses = @addresses.where(["street LIKE :filter", :filter => "%" + params[:filter] + "%"]) unless params[:filter].blank?
+    @addresses = @addresses.page(params[:page]) || 1
   end
 
   # GET /addresses/1 or /addresses/1.json

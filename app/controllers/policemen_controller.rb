@@ -5,6 +5,7 @@ class PolicemenController < ApplicationController
   # GET /policemen or /policemen.json
   def index
     @policemen = Policeman.all
+    @policemen = @policemen.page(params[:page]) || 1
   end
 
   # GET /policemen/1 or /policemen/1.json

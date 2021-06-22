@@ -1,14 +1,13 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Trials</h1>
+<h1>Juicios</h1>
 
-<table>
+<table class="table table-hover">
   <thead>
     <tr>
-      <th>Details</th>
-      <th>Date</th>
-      <th>Report</th>
-      <th>Employee</th>
+      <th scope="col">Detalles</th>
+      <th scope="col">Fecha y hora</th>
+      <th scope="col">Detalles de la denuncia</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -18,16 +17,17 @@
       <tr>
         <td><%= trial.details %></td>
         <td><%= trial.date %></td>
-        <td><%= trial.report_id %></td>
-        <td><%= trial.employee_id %></td>
-        <td><%= link_to 'Show', trial %></td>
-        <td><%= link_to 'Edit', edit_trial_path(trial) %></td>
-        <td><%= link_to 'Destroy', trial, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= trial.report.details %></td>
+        <td><%= link_to 'Ver', trial, class: "btn btn-success", style: "color:white" %></td>
+        <td><%= link_to 'Editar', edit_trial_path(trial), class: "btn btn-primary", style: "color:white" %></td>
+        <td><%= link_to 'Eliminar', trial, class: "btn btn-danger", style: "color:white", method: :delete, data: { confirm: '¿Está seguro?' } %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
+<%= paginate @trials %>
+
 <br>
 
-<%= link_to 'New Trial', new_trial_path %>
+<%= link_to 'Nuevo Juicio', new_trial_path, class: "btn btn-primary", style: "color:white" %>

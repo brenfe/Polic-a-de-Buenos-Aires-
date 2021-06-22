@@ -2,6 +2,12 @@
 
 <h1>Direcciones</h1>
 
+<form method="GET" action="/addresses">
+  <input type="text" name="filter" class="form-control"/>
+  <br>
+  <input type="submit" class="btn btn-secondary" value="Buscar" />
+</form>
+<br>
 <table class="table table-hover">
   <thead>
     <tr>
@@ -24,11 +30,13 @@
         <td><%= address.city.name %></td>
         <td><%= link_to 'Ver', address, class: "btn btn-success", style: "color:white" %></td>
         <td><%= link_to 'Editar', edit_address_path(address), class: "btn btn-primary", style: "color:white" %></td>
-        <td><%= link_to 'Eliminar', address, class: "btn btn-danger", style: "color:white",  method: :delete, data: { confirm: '¿Está seguro?' }%></td>
+        <td><%= link_to 'Eliminar', address, class: "btn btn-danger", style: "color:white",  method: :delete, data: { confirm: '¿Está seguro' }%></td>
       </tr>
     <% end %>
   </tbody>
 </table>
+
+<%= paginate @addresses %>
 
 <br>
 

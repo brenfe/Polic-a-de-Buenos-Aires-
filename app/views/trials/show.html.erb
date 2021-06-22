@@ -1,24 +1,20 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Details:</strong>
+  <strong>Detalles:</strong>
   <%= @trial.details %>
 </p>
 
 <p>
-  <strong>Date:</strong>
+  <strong>Fecha y hora:</strong>
   <%= @trial.date %>
 </p>
 
 <p>
-  <strong>Report:</strong>
-  <%= @trial.report_id %>
+  <strong>Detalles de la denuncia:</strong>
+  <%= @trial.report.details %>
 </p>
 
-<p>
-  <strong>Employee:</strong>
-  <%= @trial.employee_id %>
-</p>
 
-<%= link_to 'Edit', edit_trial_path(@trial) %> |
-<%= link_to 'Back', trials_path %>
+<%= link_to 'Editar', edit_trial_path(@trial) %> |
+<%= link_to 'Volver', trials_path %>

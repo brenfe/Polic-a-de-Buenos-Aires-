@@ -1,12 +1,12 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Properties</h1>
+<h1>Propiedades</h1>
 
-<table>
+<table class="table table-hover">
   <thead>
     <tr>
-      <th>Address</th>
-      <th>Details</th>
+      <th scope="col">Dirección</th>
+      <th scope="col">Detalles</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -14,16 +14,18 @@
   <tbody>
     <% @properties.each do |property| %>
       <tr>
-        <td><%= property.address_id %></td>
+        <td><%= property.address.direccion %></td>
         <td><%= property.details %></td>
-        <td><%= link_to 'Show', property %></td>
-        <td><%= link_to 'Edit', edit_property_path(property) %></td>
-        <td><%= link_to 'Destroy', property, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Ver', property, class: "btn btn-success", style: "color:white" %></td>
+        <td><%= link_to 'Editar', edit_property_path(property), class: "btn btn-primary", style: "color:white" %></td>
+        <td><%= link_to 'Eliminar', property, class: "btn btn-danger", style: "color:white", method: :delete, data: { confirm: '¿Está seguro?' } %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
+<%= paginate @properties %>
+
 <br>
 
-<%= link_to 'New Property', new_property_path %>
+<%= link_to 'Nueva Propiedad', new_property_path, class: "btn btn-primary", style: "color:white" %>

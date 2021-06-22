@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_06_20_124146) do
+ActiveRecord::Schema.define(version: 2021_06_22_174123) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -49,7 +49,7 @@ ActiveRecord::Schema.define(version: 2021_06_20_124146) do
   end
 
   create_table "damages", force: :cascade do |t|
-    t.string "type"
+    t.string "table_type"
     t.bigint "person_id", null: false
     t.bigint "property_id", null: false
     t.datetime "created_at", precision: 6, null: false
@@ -113,6 +113,15 @@ ActiveRecord::Schema.define(version: 2021_06_20_124146) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "registrations", force: :cascade do |t|
+    t.bigint "employee_id", null: false
+    t.bigint "trial_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["employee_id"], name: "index_registrations_on_employee_id"
+    t.index ["trial_id"], name: "index_registrations_on_trial_id"
+  end
+
   create_table "reports", force: :cascade do |t|
     t.datetime "date"
     t.string "details"
@@ -164,6 +173,8 @@ ActiveRecord::Schema.define(version: 2021_06_20_124146) do
   add_foreign_key "policemen", "people"
   add_foreign_key "policemen", "police_stations"
   add_foreign_key "properties", "addresses"
+  add_foreign_key "registrations", "employees"
+  add_foreign_key "registrations", "trials"
   add_foreign_key "reports", "categories"
   add_foreign_key "reports", "complainants"
   add_foreign_key "reports", "damages"

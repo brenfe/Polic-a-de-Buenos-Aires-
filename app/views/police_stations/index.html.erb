@@ -1,12 +1,12 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Police Stations</h1>
+<h1>Comisarías</h1>
 
-<table>
+<table class="table table-hover">
   <thead>
     <tr>
-      <th>Address</th>
-      <th>Name</th>
+      <th scope="col">Dirección</th>
+      <th scope="col">Nombre</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -14,16 +14,18 @@
   <tbody>
     <% @police_stations.each do |police_station| %>
       <tr>
-        <td><%= police_station.address_id %></td>
+        <td><%= police_station.address.direccion %></td>
         <td><%= police_station.name %></td>
-        <td><%= link_to 'Show', police_station %></td>
-        <td><%= link_to 'Edit', edit_police_station_path(police_station) %></td>
-        <td><%= link_to 'Destroy', police_station, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Ver', police_station, class: "btn btn-success", style: "color:white" %></td>
+        <td><%= link_to 'Editar', edit_police_station_path(police_station), class: "btn btn-primary", style: "color:white" %></td>
+        <td><%= link_to 'Eliminar', police_station, class: "btn btn-danger", style: "color:white", method: :delete, data: { confirm: '¿Está seguro?' } %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
+<%= paginate @police_stations %>
+
 <br>
 
-<%= link_to 'New Police Station', new_police_station_path %>
+<%= link_to 'Nueva Comisaría', new_police_station_path, class: "btn btn-primary", style: "color:white" %>

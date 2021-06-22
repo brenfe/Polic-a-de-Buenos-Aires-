@@ -12,21 +12,21 @@
   <% end %>
 
   <div class="field">
-    <%= form.label :type %>
-    <%= form.text_field :type %>
+    <%= form.label :table_type, 'Tipo', class: "form-label" %>
+    <%= form.text_field :table_type, class: "form-control" %>
   </div>
 
   <div class="field">
-    <%= form.label :person_id %>
-    <%= form.collection_select :person_id, Person.all, :id, :nombre_completo, html_options = { class: "form-select form-control"} %>
+    <%= form.label :person_id, 'Persona', class: "form-label" %>
+    <%= form.collection_select :person_id, Person.all, :id, :nombre_completo, { :include_blank => true }, {class: 'form-select'} %>
   </div>
 
   <div class="field">
-    <%= form.label :property_id %>
-    <%= form.collection_select :property_id, Property.all, :id, :propiedad, html_options = { class: "form-select form-control"} %>
+    <%= form.label :property_id, 'Propiedad', class: "form-label" %>
+    <%= form.collection_select :property_id, Property.all, :id, :propiedad, { :include_blank => true }, {class: 'form-select'} %>
   </div>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit 'Guardar cambios', class: "btn btn-success" %>
   </div>
 <% end %>
