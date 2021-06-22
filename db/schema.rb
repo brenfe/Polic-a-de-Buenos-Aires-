@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_06_22_174123) do
+ActiveRecord::Schema.define(version: 2021_06_22_181732) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -113,15 +113,6 @@ ActiveRecord::Schema.define(version: 2021_06_22_174123) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "registrations", force: :cascade do |t|
-    t.bigint "employee_id", null: false
-    t.bigint "trial_id", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["employee_id"], name: "index_registrations_on_employee_id"
-    t.index ["trial_id"], name: "index_registrations_on_trial_id"
-  end
-
   create_table "reports", force: :cascade do |t|
     t.datetime "date"
     t.string "details"
@@ -137,6 +128,15 @@ ActiveRecord::Schema.define(version: 2021_06_22_174123) do
     t.index ["damage_id"], name: "index_reports_on_damage_id"
     t.index ["defendant_id"], name: "index_reports_on_defendant_id"
     t.index ["policeman_id"], name: "index_reports_on_policeman_id"
+  end
+
+  create_table "trial_employees", force: :cascade do |t|
+    t.bigint "employee_id", null: false
+    t.bigint "trial_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["employee_id"], name: "index_trial_employees_on_employee_id"
+    t.index ["trial_id"], name: "index_trial_employees_on_trial_id"
   end
 
   create_table "trials", force: :cascade do |t|
@@ -173,12 +173,12 @@ ActiveRecord::Schema.define(version: 2021_06_22_174123) do
   add_foreign_key "policemen", "people"
   add_foreign_key "policemen", "police_stations"
   add_foreign_key "properties", "addresses"
-  add_foreign_key "registrations", "employees"
-  add_foreign_key "registrations", "trials"
   add_foreign_key "reports", "categories"
   add_foreign_key "reports", "complainants"
   add_foreign_key "reports", "damages"
   add_foreign_key "reports", "defendants"
   add_foreign_key "reports", "policemen"
+  add_foreign_key "trial_employees", "employees"
+  add_foreign_key "trial_employees", "trials"
   add_foreign_key "trials", "reports"
 end

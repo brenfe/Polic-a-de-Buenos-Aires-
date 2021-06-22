@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  resources :registrations
+  resources :trial_employees
   devise_for :users
   resources :trials
   resources :reports
