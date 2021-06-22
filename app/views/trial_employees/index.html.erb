@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Registrar un empleado en un juicio</h1>
+
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th scope="col">Empleado</th>
+      <th scope="col">Fecha y hora del juicio</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @trial_employees.each do |trial_employee| %>
+      <tr>
+        <td><%= trial_employee.employee.person_full_name %></td>
+        <td><%= trial_employee.trial.date %></td>
+        <td><%= link_to 'Ver', trial_employee, class: "btn btn-success", style: "color:white" %></td>
+        <td><%= link_to 'Editar', edit_trial_employee_path(trial_employee), class: "btn btn-primary", style: "color:white" %></td>
+        <td><%= link_to 'Eliminar', trial_employee, class: "btn btn-danger", style: "color:white", method: :delete, data: { confirm: '¿Está seguro?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'Nuevo Registro', new_trial_employee_path, class: "btn btn-primary", style: "color:white" %>

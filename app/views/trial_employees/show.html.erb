@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Empleado:</strong>
+  <%= @trial_employee.employee.person_full_name %>
+</p>
+
+<p>
+  <strong>Fecha y hora del juicio:</strong>
+  <%= @trial_employee.trial.date %>
+</p>
+
+<%= link_to 'Editar', edit_trial_employee_path(@trial_employee) %> |
+<%= link_to 'Volver', trial_employees_path %>
